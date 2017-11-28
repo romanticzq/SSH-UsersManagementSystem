@@ -14,10 +14,10 @@
 <body>
 	<jsp:include page="../../../common/header.jsp"></jsp:include>
 	<jsp:include page="../../../common/left.jsp"></jsp:include>
-	<div id="right" style="width:600px;height:600px;display:inline-block;margin-left:0px">
+	<div id="right" style="width:600px;height:500px;display:inline-block;margin-left:0px">
 		<canvas id="userGenderChartCanvas"></canvas>
 	</div>
-	<div id="rightTemp" style="width:500px;height:600px;display:inline-block">
+	<div id="rightTemp" style="width:500px;height:500px;display:inline-block">
 		<canvas id="userCreateChartCanvas"></canvas>
 	</div>
 	<script type="text/javascript">
