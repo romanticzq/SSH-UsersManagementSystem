@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+	 <!-- 加载顺序：context-param -> listener -> filter -> servlet -->
+    
+    <!-- 定义web应用名称 -->
+    <display-name>Archetype Created Web Application</display-name>
+    
+    <!-- 作用：该元素用来声明应用范围(整个WEB项目)内的上下文初始化参数。
+    param-name 设定上下文的参数名称。必须是唯一名称
+    param-value 设定的参数名称的值 -->
+    <!-- 读取到<context-param>转化为键值对,并交给ServletContext。 -->
+    <!-- 此处作用是加载spring的配置文件 -->
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>
+                classpath:applicationContext.xml
+        </param-value>
+    </context-param>
+    
+    <!-- 容器创建<listener></listener>中的类实例,即创建监听 -->
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+    
+    <filter>
+        <filter-name>struts2</filter-name>
+        <filter-class>org.apache.struts2.dispatcher.filter.StrutsPrepareAndExecuteFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>struts2</filter-name>
+        <url-pattern>/*</url-pattern>
+        <dispatcher>REQUEST</dispatcher>
+        <dispatcher>FORWARD</dispatcher>
+    </filter-mapping>
+    
+    <welcome-file-list>
+    	<welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+</web-app>

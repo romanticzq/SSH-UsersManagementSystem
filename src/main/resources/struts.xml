@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+	"http://struts.apache.org/dtds/struts-2.5.dtd">
+	
+<struts>
+	<!-- 修改动态方法的调用,true 动态方法，false 非动态方法 -->
+	<constant name="struts.enable.DynamicMethodInvocation" value="true"/>
+	
+    <package name="default" namespace="/" extends="struts-default">
+    	
+    	<global-allowed-methods>queryAll,queryUser,addUser,updateUser,deleteUser,to_form,addOrUpdateUser,to_form1,queryPage1,queryPage1AndName,to_analyze,analyzeUser</global-allowed-methods>
+        <action name="userAction!*" class="com.qingshixun.project.action.UserAction" method="{1}">
+            <result name="list">/WEB-INF/views/user/list.jsp</result>
+            <result name="form">/WEB-INF/views/user/form.jsp</result>
+            <result name="analyze">/WEB-INF/views/user/analyze.jsp</result>
+        </action>
+    </package>
+</struts>
